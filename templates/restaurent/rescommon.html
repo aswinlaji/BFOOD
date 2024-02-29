@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+     body{
+        background:rgb(112, 112, 253);
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      padding: 90px 0;
+      background-color: #0a0a0a;
+      border-right: 1px solid #e9ecef;
+      
+    }
+
+    .sidebar ul.nav flex-column {
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    .sidebar ul.nav li {
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    .sidebar ul.nav li a {
+      color: #e9f0f7;
+    }
+
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="/addproduct">ADD PRODUCT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">VIEW ORDER</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/viewpro">VIEW PRODUCTS</a>
+      </li>
+     
+      
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>Welcome {{rname}}</h1>
+    <p>This is the main content area. You can add your dashboard widgets, charts, tables, etc., here.</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  {% block header %}
+  {% endblock %}
+</body>
+</html>

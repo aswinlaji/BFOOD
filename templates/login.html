@@ -1,0 +1,53 @@
+{% extends 'commonpage.html' %}
+{% block header %}
+{% load static %}
+
+<style>
+    
+    form {
+      width: 300px; 
+      
+      padding: 20px;
+      
+      
+      border-radius: 5px; 
+      
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+      
+      top: 50%; 
+      
+     left: 50%; 
+    
+
+    margin: 0 auto;
+    }
+
+  </style>
+   <!-- <div class="container mt-5"> -->
+   {% if msg %}
+   <div class="alert alert-danger" role="alert">
+       {{ msg }}
+   </div>
+   {% endif %}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="eml">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="psd">
+  </div>
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  
+    
+</form>
+
+
+
+{% endblock %}

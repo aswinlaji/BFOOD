@@ -1,0 +1,58 @@
+{% extends 'commonpage.html' %}
+{% block header %}
+{% load static %}
+<style>
+  form{
+    width: 500px;
+    margin: 0 auto;
+    top: 50%;
+    /* padding: 20px; */
+    text-align: center;
+  }
+  h3{
+
+    text-align: center;
+  }
+</style>
+
+{% if msg %}
+   <div class="alert alert-danger" role="alert">
+       {{ msg }}
+   </div>
+   {% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>  Restaurent Register </h3>
+ <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" name="rname" placeholder="KMS Restaurent">
+    <label for="floatingInput">Restaurent Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" name="phn" placeholder="+91 4563315551">
+    <label for="floatingInput">Phone Number</label>
+  </div>
+ 
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" id="floatingInput" name="eml" placeholder="name@example.com">
+    <label for="floatingInput">Email address</label>
+  </div> <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" name="addrs" placeholder="name@example.com">
+    <label for="floatingInput">Address</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" name="rlnum" placeholder="LK54512214">
+    <label for="floatingInput">Restaurent Licence number</label>
+  </div>
+</div>
+<div class="form-floating mb-3">
+  <input type="file" class="form-control" id="floatingInput" name="image" placeholder="LK54512214">
+  <label for="floatingInput">image</label>
+</div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" name="psd" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+  </div><br>
+  <button type="submit" class="btn btn-primary"> Register </button></form>
+
+</form>
+  {% endblock%}

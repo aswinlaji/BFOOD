@@ -1,0 +1,80 @@
+{% extends 'commonpage.html'%}
+{% block header %}
+{% load static %}
+<style>
+    .parent-container {
+      display: flex; 
+      flex-wrap: wrap; /* Allow cards to wrap to the next row */
+      justify-content: center; /* Center the cards horizontally */
+    }
+  
+    .rviewm {
+      width: 100%; 
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+    }
+  
+    .card {
+      width: calc(25% - 20px); /* Set a fixed width for each card */
+      margin: 0 5px 20px 10px; /* Add space between cards and shift them more to the right */
+      border: none; 
+      border-radius: 10px; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      height: 400px; /* Set a fixed height for the cards */
+      display: flex; /* Use flexbox for card alignment */
+      flex-direction: column; /* Stack elements vertically */
+    }
+  
+    .card-img-top {
+      width: 100%; 
+      height: 200px;
+      border-radius: 10px 10px 0 0;
+    }
+  
+    .card-body {
+      padding: 15px;
+      flex-grow: 1; /* Allow the card body to grow vertically */
+    }
+  
+    .card-title {
+      font-weight: bold;
+    }
+  
+    .card-text {
+      font-size: 14px;
+    }
+  
+    .btn-primary {
+      margin-top: auto; /* Push buttons to the bottom of the card */
+    }
+  
+    .row {
+      display: flex;
+      justify-content: flex-end;
+    }
+  </style>
+<div class="rview">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="container-fluid parent-container">
+        {% for item in shopview %}
+        <div class="card" >
+          <a href="/cview">
+          <img src=" /static/media/{{ item.rimage }}" class="card-img-top" alt="{{ item.image_alt }}">
+          </a>
+
+            <div class="card-body">
+                <h5 class="card-title">{{ item.rname }}</h5>
+                <p class="card-text">{{ item.phone }}</p>
+                <p class="card-text">{{ item.email }}</p>
+                <p class="card-text">{{ item.address }}</p>
+                <!-- <a href="/rdelete?uid={{ item.id}}" class="btn btn-danger">Delet</a> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</form>
+</div>
+{% endblock %}

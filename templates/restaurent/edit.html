@@ -1,0 +1,46 @@
+{% extends 'restaurent/rescommon.html' %}
+{% block header %}
+{% load static%}
+<style>
+    form {
+    width: 500px; 
+    
+    padding: 20px;
+    
+    
+    border-radius: 5px; 
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    
+    top: 70%; 
+    
+   left: 50%; 
+  
+
+  margin: 0 auto;
+  }
+ 
+  
+</style>
+<form method="POST" enctype="multipart/form-data">
+  {% for i in edit %}
+    {% csrf_token %}
+  <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Product Name</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" name="pname" placeholder=""  value="{{ i.pname }}">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Price</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2"name="price"  placeholder="" value="{{ i.price }}">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Description</label>
+      <textarea type="text" class="form-control" id="formGroupExampleInput2"  name="desc" placeholder=""> {{i.disc}}</textarea>
+    </div>
+    <!-- <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label"> Image</label>
+      <input type="file" class="form-control" id="formGroupExampleInput2" name="img" placeholder="">
+    </div> -->
+    {% endfor %}
+  <center>  <button type="submit" class="btn btn-primary">Submit</button></center>
+  {% endblock %}
