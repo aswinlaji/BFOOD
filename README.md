@@ -1,0 +1,1 @@
+BFOOD is a Python Django website developed for ordering food while traveling by bus. Users can check the restaurants near their next bus stand or bus terminal and order food according to the availability of restaurants. The ordered food is provided at the designated collection point in the bus stand or bus terminal, where users can collect their orders
